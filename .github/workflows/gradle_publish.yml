@@ -19,6 +19,10 @@ on:
         type: string
         required: false
         default: 1.8
+      action-ice:
+        required: false
+        default: false
+        type: string
     secrets:
       ARTIFACTORY_USER:
         required: true
@@ -34,6 +38,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
+      - uses: ome/action-ice@v1
+        if: ${{ inputs.action-ice }}
       - name: Set up environment
         uses: ome/action-gradle@v1
         with:

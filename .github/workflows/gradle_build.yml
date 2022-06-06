@@ -12,6 +12,10 @@ on:
         required: false
         default: build
         type: string
+      action-ice:
+        required: false
+        default: false
+        type: string
 
 
 jobs:
@@ -23,6 +27,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
+      - uses: ome/action-ice@v1
+        if: ${{ inputs.action-ice }}
       - name: Set up environment
         uses: ome/action-gradle@v1
         with:
