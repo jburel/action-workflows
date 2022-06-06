@@ -15,7 +15,7 @@ on:
       action-ice:
         required: false
         default: false
-        type: string
+        type: boolean
 
 
 jobs:
@@ -29,7 +29,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Install Ice and Ice python binding
         uses: ome/action-ice@v1
-        if: ${{ inputs.action-ice }}
+        if: ${{ inputs.action-ice == 'true' }}
       - name: Set up environment
         uses: ome/action-gradle@v1
         with:
