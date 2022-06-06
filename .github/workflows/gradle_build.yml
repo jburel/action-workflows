@@ -27,7 +27,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
-      - uses: ome/action-ice@v1
+      - name: Install Ice and Ice python binding
+        uses: ome/action-ice@v1
         if: ${{ inputs.action-ice }}
       - name: Set up environment
         uses: ome/action-gradle@v1
