@@ -78,3 +78,7 @@ jobs:
         env:
           ARTIFACTORY_USER: ${{ secrets.ARTIFACTORY_USER }}
           ARTIFACTORY_PASSWORD: ${{ secrets.ARTIFACTORY_PASSWORD }}
+      - name: Create a GitHub release
+        run: gh release create --generate-notes "${GITHUB_REF#refs/tags/}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
