@@ -6,7 +6,7 @@ on:
     inputs:
       gradle-version:
         required: false
-        default: 6.8.3
+        default: 8.7
         type: string
       gradle-commands:
         required: false
@@ -22,7 +22,7 @@ jobs:
   build:
     strategy:
       matrix:
-        java: [11]
+        java: [17]
         os: [ubuntu-latest, windows-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     env:
